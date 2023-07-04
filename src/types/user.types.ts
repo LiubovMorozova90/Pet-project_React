@@ -1,3 +1,5 @@
+// Эти типы добавил для примера просто
+
 export interface AuthUser {
   email: string;
   password: string;

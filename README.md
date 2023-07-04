@@ -2,7 +2,7 @@
 
 ## Заходим в папку проекта и переходим в develop ветку
 
-```
+```bash
 cd ~/projects/pet-project
 # название папки проекта может быть другим у тебя
 
@@ -62,3 +62,36 @@ gh pr create --web # создаем PR
 ## Ждемс апрув
 
 ---
+
+# Добавление новых компонентов
+
+В папке `/components` создаем папку с названием компонента,
+например `Card`. После добавляем корневой файл и стили. Должно получится как то так:
+
+```
+components/
+  Card/
+    index.tsx
+    Card.module.css
+```
+
+Внутри `index.tsx` базовая структура компонента может выглядеть так:
+
+```
+import React from 'react';
+
+import styles from './Card.module.css'
+
+// Если пропсы есть
+type Props = {
+ // ...
+};
+
+const Card = (props: Props) => {
+  // ...
+
+  return <div className={styles['card']}>Card</div>;
+};
+
+export default Card;
+```
