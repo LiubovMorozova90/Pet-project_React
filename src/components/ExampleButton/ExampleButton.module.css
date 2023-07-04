@@ -1,0 +1,11 @@
+.example-btn {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.example-btn__emoji {
+}
