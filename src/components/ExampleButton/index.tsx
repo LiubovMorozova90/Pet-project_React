@@ -2,6 +2,8 @@ import React, { PropsWithChildren } from 'react';
 
 import styles from './ExampleButton.module.css';
 
+// Чтобы руками не указывать тип для children наследуемся от PropsWithChildren
+// но это не обязательно, можно было и руками добавить поле - children?: React.ReactNode
 interface Props extends PropsWithChildren {
   textColor: 'tomato' | 'plum';
   emoji?: string;
