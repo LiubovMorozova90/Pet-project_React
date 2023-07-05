@@ -3,6 +3,12 @@ import Head from 'next/head';
 import ExampleButton from 'components/ExampleButton';
 import styles from 'styles/Home.module.css';
 
+import Button from 'components/ExampleButton/newButton';
+
+const handleClick = () => {
+    console.log('Кнопка была нажата');
+  };
+
 export default function Home() {
   return (
     <>
@@ -24,6 +30,10 @@ export default function Home() {
         <ExampleButton textColor="tomato" emoji="🔥">
           Кнопка
         </ExampleButton>
+
+        <Button onClick={handleClick} color="Yellow">
+          Нажми меня
+      </Button>
       </main>
     </>
   );
