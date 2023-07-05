@@ -1,8 +1,7 @@
 import Head from 'next/head';
 
-import ExampleButton from 'components/ExampleButton';
 import styles from 'styles/Home.module.css';
-
+import ExampleButton from 'components/ExampleButton';
 import Button from 'components/ExampleButton/newButton';
 
 const handleClick = () => {
@@ -33,7 +32,7 @@ export default function Home() {
 
         <Button onClick={handleClick} color="Yellow">
           Нажми меня
-      </Button>
+        </Button>
       </main>
     </>
   );
