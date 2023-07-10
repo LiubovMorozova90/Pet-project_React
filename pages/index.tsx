@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import styles from 'styles/Home.module.css';
 import ExampleButton from 'components/ExampleButton';
-import Button from 'components/ExampleButton/newButton';
+import NewButton from 'components/NewButton';
 
 const handleClick = () => {
     console.log('Кнопка была нажата');
@@ -30,9 +30,9 @@ export default function Home() {
           Кнопка
         </ExampleButton>
 
-        <Button onClick={handleClick} color="Yellow">
+        <NewButton onClick={handleClick} color="Yellow">
           Нажми меня
-        </Button>
+        </NewButton>
       </main>
     </>
   );
