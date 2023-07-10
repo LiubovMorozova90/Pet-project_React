@@ -1,14 +1,21 @@
+import React, { useState } from 'react';
+
 import Head from 'next/head';
 
 import styles from 'styles/Home.module.css';
 import ExampleButton from 'components/ExampleButton';
 import NewButton from 'components/NewButton';
+import NewInput from 'components/NewInput';
 
 const handleClick = () => {
-    console.log('Кнопка была нажата');
+  console.log('Кнопка была нажата');
   };
 
 export default function Home() {
+  const [currentValue, newValue] = useState({
+    currentName: 'Введите ваше имя',
+  });
+
   return (
     <>
       <Head>
@@ -33,6 +40,13 @@ export default function Home() {
         <NewButton onClick={handleClick} color="Yellow">
           Нажми меня
         </NewButton>
+
+        <NewInput value={currentValue.currentName} onChange={e => {
+            newValue({
+              ...currentValue,
+              currentName: e.target.value
+            });
+          }} />               
       </main>
     </>
   );
