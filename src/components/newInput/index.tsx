@@ -3,7 +3,7 @@ import style from './NewInput.module.css';
 
 type Props = {
   value: string;
-  onChange: Function;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const NewInput = (props: Props) => { 

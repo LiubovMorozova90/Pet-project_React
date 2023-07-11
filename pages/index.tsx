@@ -12,9 +12,7 @@ const handleClick = () => {
   };
 
 export default function Home() {
-  const [currentValue, newValue] = useState({
-    currentName: 'Введите ваше имя',
-  });
+  const [inputValue, setInputValue] = useState('');
 
   return (
     <>
@@ -37,15 +35,14 @@ export default function Home() {
           Кнопка
         </ExampleButton>
 
-        <NewButton onClick={handleClick} color="Yellow">
+        <NewButton onClick={(e) => {}} color="Yellow">
           Нажми меня
         </NewButton>
 
-        <NewInput value={currentValue.currentName} onChange={e => {
-            newValue({
-              ...currentValue,
-              currentName: e.target.value
-            });
+        <NewInput 
+          value={inputValue} 
+          onChange={e => {
+            setInputValue(e.target.value);
           }} />               
       </main>
     </>
