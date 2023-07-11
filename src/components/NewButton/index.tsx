@@ -1,12 +1,12 @@
 import React from 'react';
 import style from './NewButton.module.css';
 
-type Props = React.PropsWithChildren & { 
+type Props = React.PropsWithChildren & {
   color: 'Yellow' | 'Green';
   onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
+};
 
-const NewButton = (props: Props) => { 
+const NewButton = (props: Props) => {
   return (
     <button
       className={style['new-btn']}

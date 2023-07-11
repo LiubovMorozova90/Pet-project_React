@@ -9,7 +9,7 @@ import NewInput from 'components/NewInput';
 
 const handleClick = () => {
   console.log('Кнопка была нажата');
-  };
+};
 
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
@@ -39,11 +39,12 @@ export default function Home() {
           Нажми меня
         </NewButton>
 
-        <NewInput 
-          value={inputValue} 
-          onChange={e => {
+        <NewInput
+          value={inputValue}
+          onChange={(e) => {
             setInputValue(e.target.value);
-          }} />               
+          }}
+        />
       </main>
     </>
   );

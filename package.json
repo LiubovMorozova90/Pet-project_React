@@ -6,7 +6,8 @@
     "dev": "next dev --port=4000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.19",
