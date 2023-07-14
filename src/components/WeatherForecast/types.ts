@@ -1,10 +1,10 @@
 export type CityName = 'new york' | 'moscow' | 'washington';
 
 export type DayWeather = {
-  time: Date;
+  time: string;
   values: {
-    sunriseTime: Date;
-    sunsetTime: Date;
+    sunriseTime: string;
+    sunsetTime: string;
     temperatureAvg: number;
     windSpeedAvg: number;
   };

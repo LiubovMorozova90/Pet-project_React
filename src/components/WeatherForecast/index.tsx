@@ -7,11 +7,16 @@ type WeatherForecastProps = {
 };
 
 const WeatherForecast = ({ cityName }: WeatherForecastProps) => {
-  const [weatherData, setWeatherData] = useState<WeatherForecastType | undefined>(undefined);
+  const [weatherData, setWeatherData] = useState<
+    WeatherForecastType | undefined
+  >(undefined);
 
   useEffect(() => {
     const fetchWeatherForecast = async () => {
-      const options = { method: 'GET', headers: { accept: 'application/json' } };
+      const options = {
+        method: 'GET',
+        headers: { accept: 'application/json' },
+      };
 
       try {
         const response = await fetch(
@@ -36,11 +41,24 @@ const WeatherForecast = ({ cityName }: WeatherForecastProps) => {
     <div>
       {weatherData ? (
         <div className={style['weather-list']}>
-          <h2 className={style['weather-item']}>Город: {weatherData?.location?.name}</h2>
-          <p className={style['weather-item']}>Температура: {weatherData?.timelines?.daily[0]?.values?.temperatureAvg}</p>
-          <p className={style['weather-item']}>Средняя скорость ветра: {weatherData?.timelines?.daily[0]?.values?.windSpeedAvg}</p>
-          <p className={style['weather-item']}>Время восхода: {weatherData?.timelines?.daily[0]?.values?.sunriseTime.toLocaleTimeString()}</p>
-          <p className={style['weather-item']}>Время заката: {weatherData?.timelines?.daily[0]?.values?.sunsetTime.toLocaleTimeString()}</p>
+          <h2 className={style['weather-item']}>
+            Город: {weatherData?.location?.name}
+          </h2>
+          <p className={style['weather-item']}>
+            Температура:{' '}
+            {weatherData?.timelines?.daily[0]?.values?.temperatureAvg}
+          </p>
+          <p className={style['weather-item']}>
+            Средняя скорость ветра:{' '}
+            {weatherData?.timelines?.daily[0]?.values?.windSpeedAvg}
+          </p>
+          <p className={style['weather-item']}>
+            Время восхода:{' '}
+            {weatherData?.timelines?.daily[0]?.values?.sunriseTime}
+          </p>
+          <p className={style['weather-item']}>
+            Время заката: {weatherData?.timelines?.daily[0]?.values?.sunsetTime}
+          </p>
         </div>
       ) : (
         <p>Loading weather data...</p>
