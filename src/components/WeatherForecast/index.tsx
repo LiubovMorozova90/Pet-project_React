@@ -39,31 +39,35 @@ const WeatherForecast = ({ cityName }: WeatherForecastProps) => {
 
   return (
     <div>
-      {weatherData ? (
-        <div className={style['weather-list']}>
-          <h2 className={style['weather-item']}>
-            Город: {weatherData?.location?.name}
-          </h2>
-          <p className={style['weather-item']}>
-            Температура:{' '}
-            {weatherData?.timelines?.daily[0]?.values?.temperatureAvg}
-          </p>
-          <p className={style['weather-item']}>
-            Средняя скорость ветра:{' '}
-            {weatherData?.timelines?.daily[0]?.values?.windSpeedAvg}
-          </p>
-          <p className={style['weather-item']}>
-            Время восхода:{' '}
-            {weatherData?.timelines?.daily[0]?.values?.sunriseTime}
-          </p>
-          <p className={style['weather-item']}>
-            Время заката: {weatherData?.timelines?.daily[0]?.values?.sunsetTime}
-          </p>
-        </div>
-      ) : (
-        <p>Loading weather data...</p>
-      )}
-    </div>
+    {weatherData ? (
+      <div className={style['weather-list']}>
+        <h2 className={style['weather-item']}>
+          Город: {weatherData?.location?.name}
+        </h2>
+        {weatherData?.timelines?.daily.map((day) => (
+          <div key={day.time}>
+            <p className={style['weather-item']}>
+              Дата: {day.time.split('T')[0]}
+            </p>
+            <p className={style['weather-item']}>
+              Температура: {day.values?.temperatureAvg}
+            </p>
+            <p className={style['weather-item']}>
+              Средняя скорость ветра: {day.values?.windSpeedAvg}
+            </p>
+            <p className={style['weather-item']}>
+              Время восхода: {day.values?.sunriseTime}
+            </p>
+            <p className={style['weather-item']}>
+              Время заката: {day.values?.sunsetTime}
+            </p>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <p>Loading weather data...</p>
+    )}
+  </div>
   );
 };
 

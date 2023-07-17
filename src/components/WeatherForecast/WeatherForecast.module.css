@@ -15,3 +15,7 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+.weather-list div {
+    margin-bottom: 15px;
+}
