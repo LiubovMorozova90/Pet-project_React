@@ -2,12 +2,24 @@ import React, { useState } from 'react';
 import WeatherForecast from 'components/WeatherForecast';
 
 import styles from 'styles/Home.module.css';
+import { CityName } from 'components/WeatherForecast/types';
+
+type CitySelectOption = {
+  value: CityName;
+  label: string;
+};
+
+const CITY_SELECT_OPTIONS: CitySelectOption[] = [
+  { label: 'Москва', value: 'moscow' },
+  { label: 'Вашингтон', value: 'washington' },
+  { label: 'Нью-Йорк', value: 'new york' },
+];
 
 export default function Weather() {
-  const [selectedCity, setSelectedCity] = useState('moscow');
+  const [selectedCity, setSelectedCity] = useState<CityName>('moscow');
 
-  const handleCityChange = (e) => {
-    setSelectedCity(e.target.value);
+  const handleCityChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+    setSelectedCity(e.target.value as CityName);
   };
 
   return (
@@ -15,9 +27,11 @@ export default function Weather() {
       <div className={styles['weather-section_options']}>
         <p>Пожалуйста, выберите город</p>
         <select value={selectedCity} onChange={handleCityChange}>
-          <option value="moscow">Москва</option>
-          <option value="washington">Вашингтон</option>
-          <option value="new york">Нью-Йорк</option>
+          {CITY_SELECT_OPTIONS.map(({ label, value }) => (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          ))}
         </select>
       </div>
 
