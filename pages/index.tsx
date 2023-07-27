@@ -5,7 +5,7 @@ import Head from 'next/head';
 import styles from 'styles/Home.module.css';
 import ExampleButton from 'components/ExampleButton';
 import NewButton from 'components/NewButton';
-import NewInput from 'components/NewInput';
+import NewInput from 'components/newInput';
 
 const handleClick = () => {
   console.log('Кнопка была нажата');

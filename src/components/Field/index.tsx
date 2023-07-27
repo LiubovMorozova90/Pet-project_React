@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 
 interface Props extends PropsWithChildren {
-  label?: string;
+  label?: 'Имя пользователя' | 'Пароль';
   errorMessage?: string;
   isErrorVisible?: boolean;
 }
