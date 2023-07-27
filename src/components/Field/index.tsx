@@ -1,7 +1,9 @@
 import React, { PropsWithChildren } from 'react';
 
+import styles from './Field.module.css'
+
 interface Props extends PropsWithChildren {
-  label?: 'Имя пользователя' | 'Пароль';
+  label?: 'Имя пользователя: ' | 'Пароль: ';
   errorMessage?: string;
   isErrorVisible?: boolean;
 }
@@ -9,7 +11,7 @@ interface Props extends PropsWithChildren {
 const Field = (props: Props) => {
   return (
     <div>
-      <label>{props.label}</label>
+      <label className={styles['label-form']}>{props.label}</label>
       {props.children}
       {props.isErrorVisible && (
         <div style={{ color: 'red' }}>{props.errorMessage}</div>
