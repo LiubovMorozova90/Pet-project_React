@@ -1,9 +1,19 @@
+import React, { useState } from 'react';
+
 import Head from 'next/head';
 
-import ExampleButton from 'components/ExampleButton';
 import styles from 'styles/Home.module.css';
+import ExampleButton from 'components/ExampleButton';
+import NewButton from 'components/NewButton';
+import NewInput from 'components/NewInput';
+
+const handleClick = () => {
+  console.log('Кнопка была нажата');
+};
 
 export default function Home() {
+  const [inputValue, setInputValue] = useState('');
+
   return (
     <>
       <Head>
@@ -24,6 +34,17 @@ export default function Home() {
         <ExampleButton textColor="tomato" emoji="🔥">
           Кнопка
         </ExampleButton>
+
+        <NewButton onClick={(e) => {}} color="Yellow">
+          Нажми меня
+        </NewButton>
+
+        <NewInput
+          value={inputValue}
+          onChange={(e) => {
+            setInputValue(e.target.value);
+          }}
+        />
       </main>
     </>
   );

@@ -1,0 +1,21 @@
+.weather-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f7dbff;
+    color: #3b363d;
+    border: 2px #ba66ff solid;
+    border-radius: 8px;
+    max-width: 700px;
+    padding: 10px 15px;
+    margin: 10px 20px;
+}
+
+.weather-item {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.weather-list div {
+    margin-bottom: 15px;
+}
