@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { CityName, WeatherForecastType } from './types';
 import style from './WeatherForecast.module.css';
 
@@ -6,37 +7,42 @@ type WeatherForecastProps = {
   cityName: CityName;
 };
 
+const getWeatherForecast = async (cityName: CityName) => {
+  const options = {
+    method: 'GET',
+    headers: { accept: 'application/json' },
+  };
+
+  const response = await fetch(
+    `https://api.tomorrow.io/v4/weather/forecast?timesteps=1d&location=${cityName}&apikey=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`,
+    options
+  );
+  const data = (await response.json()) as WeatherForecastType;
+  return data;
+};
+
 const WeatherForecast = ({ cityName }: WeatherForecastProps) => {
-  const [weatherData, setWeatherData] = useState<
-    WeatherForecastType | undefined
-  >(undefined);
+  const {
+    data: weatherData,
+    isLoading,
+    isError,
+  } = useQuery<WeatherForecastType>(
+    ['weatherForecast', cityName],
+    () => getWeatherForecast(cityName),
 
-  useEffect(() => {
-    const fetchWeatherForecast = async () => {
-      const options = {
-        method: 'GET',
-        headers: { accept: 'application/json' },
-      };
+    {
+      retry: 3,
+      refetchOnWindowFocus: false,
+    }
+  );
 
-      try {
-        const response = await fetch(
-          `https://api.tomorrow.io/v4/weather/forecast?timesteps=1d&location=${cityName}&apikey=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`,
-          options
-        );
+  if (isLoading) {
+    return <p>Идет загрузка данных...</p>;
+  }
 
-        const data = (await response.json()) as WeatherForecastType;
-
-        console.log('API Response:', data);
-
-        setWeatherData(data);
-      } catch (error) {
-        console.log('API Error:', error);
-      }
-    };
-
-    fetchWeatherForecast();
-  }, [cityName]);
-
+  if (isError) {
+    return <p>Ошибка получения данных...</p>;
+  }
   return (
     <div>
       {weatherData ? (
@@ -65,7 +71,7 @@ const WeatherForecast = ({ cityName }: WeatherForecastProps) => {
           ))}
         </div>
       ) : (
-        <p>Loading weather data...</p>
+        <p>Идет загрузка данных...</p>
       )}
     </div>
   );
