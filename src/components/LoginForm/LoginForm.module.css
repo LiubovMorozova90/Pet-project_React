@@ -12,6 +12,16 @@
 .main-form div {
     display: flex;
     justify-content: space-between;
+    position: relative;
+}
+
+.main-form div div {
+    top: 20px;
+    position: absolute;
+    font-size: 12px;
+    color: red;
+    left: 235px;
+    min-width: 190px
 }
 
 .sumbit-btn {
