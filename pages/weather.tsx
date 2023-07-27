@@ -3,10 +3,12 @@ import WeatherForecast from 'components/WeatherForecast';
 
 import styles from 'styles/Home.module.css';
 
+export type CityName = 'new york' | 'moscow' | 'washington';
+
 export default function Weather() {
   const [selectedCity, setSelectedCity] = useState('moscow');
 
-  const handleCityChange = (e) => {
+  const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCity(e.target.value);
   };
 
@@ -21,7 +23,7 @@ export default function Weather() {
         </select>
       </div>
 
-      <WeatherForecast cityName={selectedCity} />
+      <WeatherForecast cityName={selectedCity as CityName} />
     </div>
   );
 }
