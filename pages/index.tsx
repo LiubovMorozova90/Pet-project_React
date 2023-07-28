@@ -35,7 +35,7 @@ export default function Home() {
           Кнопка
         </ExampleButton>
 
-        <NewButton onClick={(e) => {}} color="Yellow">
+        <NewButton onClick={(e) => { }} color="Yellow">
           Нажми меня
         </NewButton>
 

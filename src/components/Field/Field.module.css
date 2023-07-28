@@ -1,0 +1,15 @@
+.field {
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.field__error {
+  top: 20px;
+  position: absolute;
+  font-size: 12px;
+  color: red;
+  left: 235px;
+  min-width: 190px;
+}
