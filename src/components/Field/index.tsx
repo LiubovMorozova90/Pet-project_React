@@ -1,20 +1,28 @@
 import React, { PropsWithChildren } from 'react';
+import cs from 'classnames';
 
-import styles from './Field.module.css'
+import styles from './Field.module.css';
 
-interface Props extends PropsWithChildren {
-  label?: 'Имя пользователя: ' | 'Пароль: ';
+type Props = JSX.IntrinsicElements['div'] & {
+  label?: string;
   errorMessage?: string;
   isErrorVisible?: boolean;
-}
+};
 
-const Field = (props: Props) => {
+const Field = ({
+  label,
+  errorMessage,
+  isErrorVisible,
+  className,
+  children,
+  ...otherProps
+}: Props) => {
   return (
-    <div>
-      <label className={styles['label-form']}>{props.label}</label>
-      {props.children}
-      {props.isErrorVisible && (
-        <div style={{ color: 'red' }}>{props.errorMessage}</div>
+    <div className={cs(styles['field'], className)} {...otherProps}>
+      <label className={styles['field__label']}>{label}</label>
+      {children}
+      {isErrorVisible && (
+        <div className={styles['field__error']}>{errorMessage}</div>
       )}
     </div>
   );

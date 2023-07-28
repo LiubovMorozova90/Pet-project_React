@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import Field from 'components/Field';
 
-import styles from './LoginForm.module.css'
+import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
   const formik = useFormik({
@@ -38,6 +38,7 @@ const LoginForm = () => {
         />
       </Field>
       <Field
+        // className={'main-form__field'}
         label="Пароль: "
         isErrorVisible={!!(formik.touched.password && formik.errors.password)}
         errorMessage={formik.errors.password}
@@ -50,6 +51,7 @@ const LoginForm = () => {
           value={formik.values.password}
         />
       </Field>
+
       <button className={styles['sumbit-btn']} type="submit">
         Submit
       </button>
