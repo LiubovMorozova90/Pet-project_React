@@ -5,7 +5,7 @@ import Head from 'next/head';
 import styles from 'styles/Home.module.css';
 import ExampleButton from 'components/ExampleButton';
 import NewButton from 'components/NewButton';
-import NewInput from 'components/newInput';
+import NewInput from 'components/NewInput';
 
 const handleClick = () => {
   console.log('Кнопка была нажата');
@@ -35,7 +35,7 @@ export default function Home() {
           Кнопка
         </ExampleButton>
 
-        <NewButton onClick={(e) => {}} color="Yellow">
+        <NewButton onClick={(e) => { }} color="Yellow">
           Нажми меня
         </NewButton>
 
